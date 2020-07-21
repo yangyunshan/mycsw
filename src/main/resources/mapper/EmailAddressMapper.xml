@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.EmailAddressDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="emailAddress.id">
+        insert into emailaddress(id,address,type,emailaddress_id) values (#{emailAddress.id},
+        #{emailAddress.address},#{emailAddress.type.id},#{emailaddressId})
+    </insert>
+    <select id="selectEmailAddressesBy_Id" resultMap="emailAddress">
+        select
+        id,
+        address,
+        type t_id
+        from
+        emailaddress
+        where
+        emailaddress_id = #{emailAddressId}
+    </select>
+    <delete id="deleteEmailAddressById">
+        delete from emailaddress where id = #{id}
+    </delete>
+    <resultMap id="emailAddress" type="com.csw.model.EmailAddress">
+        <id property="id" column="id"/>
+        <result property="address" column="address"/>
+        <association property="type" resultMap="com.myown.ResultMap.objectRef" column="t_"/>
+    </resultMap>
+</mapper>

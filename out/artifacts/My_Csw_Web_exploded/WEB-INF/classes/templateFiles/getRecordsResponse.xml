@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><csw:GetRecordsResponse xmlns:csw="http://www.opengis.net/cat/csw/2.0.2" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dct="http://purl.org/dc/terms/" xmlns:ows="http://www.opengis.net/ows" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0.2" xsi:schemaLocation="http://www.opengis.net/cat/csw/2.0.2 http://localhost:8080/geoserver/schemas/csw/2.0.2/record.xsd">
+  <csw:SearchStatus timestamp="2019-06-19T08:36:07.686Z"/>
+  <csw:SearchResults numberOfRecordsMatched="26" numberOfRecordsReturned="10" nextRecord="11" recordSchema="http://www.opengis.net/cat/csw/2.0.2" elementSet="full">
+    <csw:Record>
+      <dc:identifier>TestService:china</dc:identifier>
+      <dc:creator>GeoServer Catalog</dc:creator>
+      <dct:references scheme="OGC:WMS">http://localhost:8080/geoserver/wms?service=WMS&amp;request=GetMap&amp;layers=TestService:china</dct:references>
+      <dc:subject>features</dc:subject>
+      <dc:subject>china</dc:subject>
+      <dc:title>china</dc:title>
+      <dc:type>http://purl.org/dc/dcmitype/Dataset</dc:type>
+      <ows:BoundingBox crs="urn:x-ogc:def:crs:EPSG:6.11:4326">
+        <ows:LowerCorner>73.3114242553711 17.9919567108154</ows:LowerCorner>
+        <ows:UpperCorner>135.079376220703 53.7313652038574</ows:UpperCorner>
+      </ows:BoundingBox>
+    </csw:Record>
+    <csw:Record>
+      <dc:identifier>TestService:hyd</dc:identifier>
+      <dc:creator>GeoServer Catalog</dc:creator>
+      <dct:references scheme="OGC:WMS">http://localhost:8080/geoserver/wms?service=WMS&amp;request=GetMap&amp;layers=TestService:hyd</dct:references>
+      <dc:subject>features</dc:subject>
+      <dc:subject>hyd</dc:subject>
+      <dc:title>hyd</dc:title>
+      <dc:type>http://purl.org/dc/dcmitype/Dataset</dc:type>
+      <ows:BoundingBox crs="urn:x-ogc:def:crs:EPSG:6.11:4326">
+        <ows:LowerCorner>82.0568771362305 21.4134769439697</ows:LowerCorner>
+        <ows:UpperCorner>135.33659362793 53.4516716003418</ows:UpperCorner>
+      </ows:BoundingBox>
+    </csw:Record>
+    <csw:Record>
+      <dc:identifier>tiger:giant_polygon</dc:identifier>
+      <dc:creator>GeoServer Catalog</dc:creator>
+      <dct:references scheme="OGC:WMS">http://localhost:8080/geoserver/wms?service=WMS&amp;request=GetMap&amp;layers=tiger:giant_polygon</dct:references>
+      <dc:subject>DS_giant_polygon</dc:subject>
+      <dc:subject>giant_polygon</dc:subject>
+      <dct:abstract>A simple rectangular polygon covering most of the world, it's only used for the purpose of providing a background (WMS bgcolor could be used instead)</dct:abstract>
+      <dc:title>World rectangle</dc:title>
+      <dc:type>http://purl.org/dc/dcmitype/Dataset</dc:type>
+      <ows:BoundingBox crs="urn:x-ogc:def:crs:EPSG:6.11:4326">
+        <ows:LowerCorner>-90.0 -180.0</ows:LowerCorner>
+        <ows:UpperCorner>90.0 180.0</ows:UpperCorner>
+      </ows:BoundingBox>
+    </csw:Record>
+    <csw:Record>
+      <dc:identifier>tiger:poi</dc:identifier>
+      <dc:creator>GeoServer Catalog</dc:creator>
+      <dct:references scheme="OGC:WMS">http://localhost:8080/geoserver/wms?service=WMS&amp;request=GetMap&amp;layers=tiger:poi</dct:references>
+      <dc:subject>poi</dc:subject>
+      <dc:subject>Manhattan</dc:subject>
+      <dc:subject>DS_poi</dc:subject>
+      <dc:subject>points_of_interest</dc:subject>
+      <dct:abstract>Points of interest in New York, New York (on Manhattan). One of the attributes contains the name of a file with a picture of the point of interest.</dct:abstract>
+      <dc:title>Manhattan (NY) points of interest</dc:title>
+      <dc:type>http://purl.org/dc/dcmitype/Dataset</dc:type>
+      <ows:BoundingBox crs="urn:x-ogc:def:crs:EPSG:6.11:4326">
+        <ows:LowerCorner>40.70754683896324 -74.0118315772888</ows:LowerCorner>
+        <ows:UpperCorner>40.719885123828675 -74.00153046439813</ows:UpperCorner>
+      </ows:BoundingBox>
+    </csw:Record>
+    <csw:Record>
+      <dc:identifier>tiger:poly_landmarks</dc:identifier>
+      <dc:creator>GeoServer Catalog</dc:creator>
+      <dct:references scheme="OGC:WMS">http://localhost:8080/geoserver/wms?service=WMS&amp;request=GetMap&amp;layers=tiger:poly_landmarks</dct:references>
+      <dc:subject>landmarks</dc:subject>
+      <dc:subject>DS_poly_landmarks</dc:subject>
+      <dc:subject>manhattan</dc:subject>
+      <dc:subject>poly_landmarks</dc:subject>
+      <dct:abstract>Manhattan landmarks, identifies water, lakes, parks, interesting buildilngs</dct:abstract>
+      <dc:title>Manhattan (NY) landmarks</dc:title>
+      <dc:type>http://purl.org/dc/dcmitype/Dataset</dc:type>
+      <ows:BoundingBox crs="urn:x-ogc:def:crs:EPSG:6.11:4326">
+        <ows:LowerCorner>40.679648 -74.047185</ows:LowerCorner>
+        <ows:UpperCorner>40.882078 -73.90782</ows:UpperCorner>
+      </ows:BoundingBox>
+    </csw:Record>
+    <csw:Record>
+      <dc:identifier>tiger:tiger_roads</dc:identifier>
+      <dc:creator>GeoServer Catalog</dc:creator>
+      <dct:references scheme="OGC:WMS">http://localhost:8080/geoserver/wms?service=WMS&amp;request=GetMap&amp;layers=tiger:tiger_roads</dct:references>
+      <dc:subject>DS_tiger_roads</dc:subject>
+      <dc:subject>tiger_roads</dc:subject>
+      <dc:subject>roads</dc:subject>
+      <dct:abstract>Highly simplified road layout of Manhattan in New York..</dct:abstract>
+      <dc:title>Manhattan (NY) roads</dc:title>
+      <dc:type>http://purl.org/dc/dcmitype/Dataset</dc:type>
+      <ows:BoundingBox crs="urn:x-ogc:def:crs:EPSG:6.11:4326">
+        <ows:LowerCorner>40.684221 -74.02722</ows:LowerCorner>
+        <ows:UpperCorner>40.878178 -73.907005</ows:UpperCorner>
+      </ows:BoundingBox>
+    </csw:Record>
+    <csw:Record>
+      <dc:identifier>topp:states</dc:identifier>
+      <dc:creator>GeoServer Catalog</dc:creator>
+      <dct:references scheme="OGC:WMS">http://localhost:8080/geoserver/wms?service=WMS&amp;request=GetMap&amp;layers=topp:states</dct:references>
+      <dc:subject>census</dc:subject>
+      <dc:subject>united</dc:subject>
+      <dc:subject>boundaries</dc:subject>
+      <dc:subject>state</dc:subject>
+      <dc:subject>states</dc:subject>
+      <dct:abstract>This is some census data on the states.</dct:abstract>
+      <dc:title>USA Population</dc:title>
+      <dc:type>http://purl.org/dc/dcmitype/Dataset</dc:type>
+      <ows:BoundingBox crs="urn:x-ogc:def:crs:EPSG:6.11:4326">
+        <ows:LowerCorner>24.955967 -124.73142200000001</ows:LowerCorner>
+        <ows:UpperCorner>49.371735 -66.969849</ows:UpperCorner>
+      </ows:BoundingBox>
+    </csw:Record>
+    <csw:Record>
+      <dc:identifier>topp:tasmania_cities</dc:identifier>
+      <dc:creator>GeoServer Catalog</dc:creator>
+      <dct:references scheme="OGC:WMS">http://localhost:8080/geoserver/wms?service=WMS&amp;request=GetMap&amp;layers=topp:tasmania_cities</dct:references>
+      <dc:subject>cities</dc:subject>
+      <dc:subject>Tasmania</dc:subject>
+      <dct:abstract>Cities in Tasmania (actually, just the capital)</dct:abstract>
+      <dc:title>Tasmania cities</dc:title>
+      <dc:type>http://purl.org/dc/dcmitype/Dataset</dc:type>
+      <ows:BoundingBox crs="urn:x-ogc:def:crs:EPSG:6.11:4326">
+        <ows:LowerCorner>-43.423512 145.19754</ows:LowerCorner>
+        <ows:UpperCorner>-40.852802 148.27298000000002</ows:UpperCorner>
+      </ows:BoundingBox>
+    </csw:Record>
+    <csw:Record>
+      <dc:identifier>topp:tasmania_roads</dc:identifier>
+      <dc:creator>GeoServer Catalog</dc:creator>
+      <dct:references scheme="OGC:WMS">http://localhost:8080/geoserver/wms?service=WMS&amp;request=GetMap&amp;layers=topp:tasmania_roads</dct:references>
+      <dc:subject>Roads</dc:subject>
+      <dc:subject>Tasmania</dc:subject>
+      <dct:abstract>Main Tasmania roads</dct:abstract>
+      <dc:title>Tasmania roads</dc:title>
+      <dc:type>http://purl.org/dc/dcmitype/Dataset</dc:type>
+      <ows:BoundingBox crs="urn:x-ogc:def:crs:EPSG:6.11:4326">
+        <ows:LowerCorner>-43.423512 145.19754</ows:LowerCorner>
+        <ows:UpperCorner>-40.852802 148.27298000000002</ows:UpperCorner>
+      </ows:BoundingBox>
+    </csw:Record>
+    <csw:Record>
+      <dc:identifier>topp:tasmania_state_boundaries</dc:identifier>
+      <dc:creator>GeoServer Catalog</dc:creator>
+      <dct:references scheme="OGC:WMS">http://localhost:8080/geoserver/wms?service=WMS&amp;request=GetMap&amp;layers=topp:tasmania_state_boundaries</dct:references>
+      <dc:subject>boundaries</dc:subject>
+      <dc:subject>tasmania_state_boundaries</dc:subject>
+      <dc:subject>Tasmania</dc:subject>
+      <dct:abstract>Tasmania state boundaries</dct:abstract>
+      <dc:title>Tasmania state boundaries</dc:title>
+      <dc:type>http://purl.org/dc/dcmitype/Dataset</dc:type>
+      <ows:BoundingBox crs="urn:x-ogc:def:crs:EPSG:6.11:4326">
+        <ows:LowerCorner>-43.648056 143.83482400000003</ows:LowerCorner>
+        <ows:UpperCorner>-39.573891 148.47914100000003</ows:UpperCorner>
+      </ows:BoundingBox>
+    </csw:Record>
+  </csw:SearchResults>
+</csw:GetRecordsResponse>

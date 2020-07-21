@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xmlns:jaxws="http://cxf.apache.org/jaxws"
+	   xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	   xmlns:cxf="http://cxf.apache.org/core"
+	   xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd
+		http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
+
+	<context:component-scan base-package="com.csw.services.interfaces"/>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+
+	<!--    配置整合Mybatis-->
+	<!--    加载配置文件-->
+	<context:property-placeholder location="classpath*:db.properties"/>
+	<!--    配置数据库连接池-->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${postgresql.driver}"/>
+		<property name="jdbcUrl" value="${postgresql.url}"/>
+		<property name="user" value="${postgresql.username}"/>
+		<property name="password" value="${postgresql.password}"/>
+
+		<property name="maxPoolSize" value="30"/>
+		<property name="minPoolSize" value="10"/>
+
+		<property name="autoCommitOnClose" value="false"/>
+		<property name="checkoutTimeout" value="10000"/>
+		<property name="acquireRetryAttempts" value="10"/>
+	</bean>
+
+	<!--    配置事务管理器-->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<!--    配置SqlSessionFactory对象-->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+		<property name="mapperLocations" value="classpath:mapper/*.xml"/>
+	</bean>
+
+	<!--    配置扫描DAO接口包-->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+		<property name="basePackage" value="com.csw.dao"/>
+	</bean>
+
+<!--	获取applicationContext-->
+	<bean id="springContenxtUtil" class="com.csw.spring.util.SpringContextUtil" lazy-init="false"/>
+
+<!--	实体类Bean-->
+	<bean id="action" class="com.csw.model.Action" scope="prototype"/>
+	<bean id="adhocQuery" class="com.csw.model.AdhocQuery" scope="prototype"/>
+	<bean id="association" class="com.csw.model.Association" scope="prototype"/>
+	<bean id="auditaleEvent" class="com.csw.model.AuditableEvent" scope="prototype"/>
+	<bean id="classification" class="com.csw.model.Classification" scope="prototype"/>
+	<bean id="classificationNode" class="com.csw.model.ClassificationNode" scope="prototype"/>
+	<bean id="classificationScheme" class="com.csw.model.ClassificationScheme" scope="prototype"/>
+	<bean id="data" class="com.csw.model.Data" scope="prototype"/>
+	<bean id="emailAddress" class="com.csw.model.EmailAddress" scope="prototype"/>
+	<bean id="externalIdentifier" class="com.csw.model.ExternalIdentifier" scope="prototype"/>
+	<bean id="externalLink" class="com.csw.model.ExternalLink" scope="prototype"/>
+	<bean id="extrinsicObject" class="com.csw.model.ExtrinsicObject" scope="prototype"/>
+	<bean id="federation" class="com.csw.model.Federation" scope="prototype"/>
+	<bean id="identifiable" class="com.csw.model.Identifiable" scope="prototype"/>
+	<bean id="internationalString" class="com.csw.model.InternationalString" scope="prototype"/>
+	<bean id="localizedString" class="com.csw.model.LocalizedString" scope="prototype"/>
+	<bean id="notification" class="com.csw.model.Notification" scope="prototype"/>
+	<bean id="notifyAction" class="com.csw.model.NotifyAction" scope="prototype"/>
+	<bean id="objectRef" class="com.csw.model.ObjectRef" scope="prototype"/>
+	<bean id="organization" class="com.csw.model.Organization" scope="prototype"/>
+	<bean id="person" class="com.csw.model.Person" scope="prototype"/>
+	<bean id="personName" class="com.csw.model.PersonName" scope="prototype"/>
+	<bean id="postalAddress" class="com.csw.model.PostalAddress" scope="prototype"/>
+	<bean id="queryExpression" class="com.csw.model.QueryExpression" scope="prototype"/>
+	<bean id="registry" class="com.csw.model.Registry" scope="prototype"/>
+	<bean id="registryObject" class="com.csw.model.RegistryObject" scope="prototype"/>
+	<bean id="registryPackage" class="com.csw.model.RegistryPackage" scope="prototype"/>
+	<bean id="service" class="com.csw.model.Service" scope="prototype"/>
+	<bean id="serviceBinding" class="com.csw.model.ServiceBinding" scope="prototype"/>
+	<bean id="slot" class="com.csw.model.Slot" scope="prototype"/>
+	<bean id="specificationLink" class="com.csw.model.SpecificationLink" scope="prototype"/>
+	<bean id="subscription" class="com.csw.model.Subscription" scope="prototype"/>
+	<bean id="telephoneNumber" class="com.csw.model.TelephoneNumber" scope="prototype"/>
+	<bean id="user" class="com.csw.model.User" scope="prototype"/>
+	<bean id="versionInfo" class="com.csw.model.VersionInfo" scope="prototype"/>
+	<bean id="_action" class="com.csw.privileage.util.Action" scope="prototype"/>
+	<bean id="_actionGroup" class="com.csw.privileage.util.ActionGroup" scope="prototype"/>
+	<bean id="_group" class="com.csw.privileage.util.Group" scope="prototype"/>
+	<bean id="_master" class="com.csw.privileage.util.Master" scope="prototype"/>
+	<bean id="_masterGroup" class="com.csw.privileage.util.MasterGroup" scope="prototype"/>
+
+
+
+
+
+
+
+
+
+
+<!--    <jaxws:server address="/transformSensormlToEbrimService" serviceClass="com.csw.services.impl.TransformSensorMlToEbrimService"/>-->
+	<jaxrs:server address="/transformSensormlToEbrimService">
+		<jaxrs:serviceBeans>
+			<ref bean="transform"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<bean id="transform" class="com.csw.services.impl.TransformSensorMlToEbrimService"/>
+	<jaxrs:server address="/getCapabilitiesService">
+		<jaxrs:serviceBeans>
+			<ref bean="getCapabilities"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<bean id="getCapabilities" class="com.csw.services.impl.GetCapabilitiesService"/>
+	<jaxrs:server address="/getRecordByIdService">
+		<jaxrs:serviceBeans>
+			<ref bean="getRecordById"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<bean id="getRecordById" class="com.csw.services.impl.GetRecordByIdService"/>
+	<jaxrs:server address="/getRecordsService">
+		<jaxrs:serviceBeans>
+			<ref bean="getRecords"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<bean id="getRecords" class="com.csw.services.impl.GetRecordsService"/>
+	<jaxrs:server address="/transactionInsertService">
+		<jaxrs:serviceBeans>
+			<ref bean="transactionInsert"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<bean id="transactionInsert" class="com.csw.services.impl.TransactionInsertService"/>
+	<jaxrs:server address="/transactionDeleteService">
+		<jaxrs:serviceBeans>
+			<ref bean="transactionDelete"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<bean id="transactionDelete" class="com.csw.services.impl.TransactionDeleteService"/>
+	<jaxrs:server address="/transactionUpdateService">
+		<jaxrs:serviceBeans>
+			<ref bean="transactionUpdate"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<bean id="transactionUpdate" class="com.csw.services.impl.TransactionUpdateService"/>
+	<jaxrs:server address="/getRecordsByKeywordsService">
+		<jaxrs:serviceBeans>
+			<ref bean="getRecordsByKeywords"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<bean id="getRecordsByKeywords" class="com.csw.services.impl.GetRecordsByKeywordsService"/>
+	<jaxrs:server address="/getRecordsByTitleService">
+		<jaxrs:serviceBeans>
+			<ref bean="getRecordsByTitle"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<bean id="getRecordsByTitle" class="com.csw.services.impl.GetRecordsByTitleService"/>
+	<jaxrs:server address="/getRecordsByBoundingService">
+		<jaxrs:serviceBeans>
+			<ref bean="getRecordsByBounding"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<bean id="getRecordsByBounding" class="com.csw.services.impl.GetRecordsByBoundingService"/>
+	<jaxrs:server address="/getRecordsByFileTypeService">
+		<jaxrs:serviceBeans>
+			<ref bean="getRecordsByFileType"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<bean id="getRecordsByFileType" class="com.csw.services.impl.GetRecordsByFileTypeService"/>
+	<jaxrs:server address="/getRecordsByOwnerService">
+		<jaxrs:serviceBeans>
+			<ref bean="getRecordsByOwner"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<bean id="getRecordsByOwner" class="com.csw.services.impl.GetRecordsByOwnerService"/>
+	<jaxrs:server address="/getRecordsByOrganizationService">
+		<jaxrs:serviceBeans>
+			<ref bean="getRecordsByOrganization"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<bean id="getRecordsByOrganization" class="com.csw.services.impl.GetRecordsByOrganizationService"/>
+	<jaxrs:server address="/getRecordsByPersonNameService">
+		<jaxrs:serviceBeans>
+			<ref bean="getRecordsByPersonName"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<bean id="getRecordsByPersonName" class="com.csw.services.impl.GetRecordsByPersonNameService"/>
+</beans>

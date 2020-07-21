@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csw:Transaction xmlns:csw="http://www.opengis.net/cat/csw/2.0.2" version="2.0.2" service="CSW">
+  <csw:Update>
+    <gmd:MD_Metadata xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml" ....>
+    ...
+    </gmd:MD_Metadata>
+    <csw:Constraint version="1.1.0">
+      <ogc:Filter>
+        <ogc:PropertyIsEqualTo>
+          <ogc:PropertyName>title</ogc:PropertyName>
+          <ogc:Literal>Eurasia</ogc:Literal>
+        </ogc:PropertyIsEqualTo>
+      </ogc:Filter>
+    </csw:Constraint>
+  </csw:Update>
+</csw:Transaction>

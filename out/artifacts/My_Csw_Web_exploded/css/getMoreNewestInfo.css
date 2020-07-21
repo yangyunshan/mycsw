@@ -1,0 +1,11 @@
+#resultShow .col-md-4 {
+    display: none;
+}
+
+#box {
+    left: 65%;
+}
+
+.ids {
+    display: none;
+}

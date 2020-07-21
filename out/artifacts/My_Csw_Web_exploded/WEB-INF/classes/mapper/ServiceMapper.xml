@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.ServiceDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="service.id">
+        insert into service(id,home,lid,description,name,objecttype,status,versioninfo)
+        values (#{service.id},#{service.home},#{service.lid},#{service.description.id},
+        #{service.name.id},#{service.objectType.id},#{service.status.id},#{service.versionInfo.id})
+    </insert>
+    <select id="selectServiceById" resultMap="service">
+        select
+        id,
+        home,
+        lid,
+        description d_id,
+        name n_id,
+        objecttype o_id,
+        status s_id,
+        versioninfo v_id
+        from
+        service
+        where
+        id = #{id}
+    </select>
+    <delete id="deleteServiceById">
+        delete from service where id = #{id}
+    </delete>
+    <resultMap id="service" type="com.csw.model.Service">
+        <id property="id" column="id"/>
+        <result property="home" column="home"/>
+        <result property="lid" column="lid"/>
+        <association property="description" resultMap="com.myown.ResultMap.internationalString" columnPrefix="d_"/>
+        <association property="name" resultMap="com.myown.ResultMap.internationalString" columnPrefix="n_"/>
+        <association property="objectType" resultMap="com.myown.ResultMap.objectRef" columnPrefix="o_"/>
+        <association property="status" resultMap="com.myown.ResultMap.objectRef" columnPrefix="s_"/>
+        <association property="versionInfo" resultMap="com.myown.ResultMap.versionInfo" columnPrefix="v_"/>
+    </resultMap>
+</mapper>

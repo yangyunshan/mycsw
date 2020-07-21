@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.LocalizedStringDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="localizedString.id">
+        insert into localizedstring(id,lang,charset,value,localizedstring_id)
+        values(#{localizedString.id},#{localizedString.lang},#{localizedString.charSet},
+        #{localizedString.value},#{localizedStringId})
+    </insert>
+
+    <resultMap id="localizedString" type="com.csw.model.LocalizedString">
+        <id property="id" column="id"/>
+        <result property="lang" column="lang"/>
+        <result property="charSet" column="charset"/>
+        <result property="value" column="value"/>
+    </resultMap>
+
+    <select id="selectLocalizedStringsBy_Id" resultMap="localizedString">
+        select
+        *
+        from
+        localizedstring
+        where
+        id = #{localizedStringId}
+    </select>
+
+    <select id="selectLocalizedStringsByFuzzIdAndValue" resultMap="localizedString">
+        select
+        *
+        from
+        localizedstring
+        where
+        id like #{fuzzId} and value like #{fuzzValue}
+    </select>
+
+    <delete id="deleteLocalizedStringById">
+        delete from localizedstring where id = #{id}
+    </delete>
+</mapper>

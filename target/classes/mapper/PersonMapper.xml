@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.PersonDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="person.id">
+        insert into person(id,home,lid,description,name,objecttype,status,versioninfo,
+        personname) values(#{person.id},#{person.home},#{person.lid},#{person.description.id},
+        #{person.name.id},#{person.objectType.id},#{person.status.id},#{person.versionInfo.id},
+        #{person.personName.id})
+    </insert>
+    <select id="selectPersonById" resultMap="person">
+        select
+        id,
+        home,
+        lid,
+        description d_id,
+        name n_id,
+        objecttype o_id,
+        status s_id,
+        versioninfo v_id,
+        personname pn_id
+        from
+        person
+        where
+        id = #{id}
+    </select>
+    <select id="selectAllPersons" resultMap="person">
+        select
+        id,
+        home,
+        lid,
+        description d_id,
+        name n_id,
+        objecttype o_id,
+        status s_id,
+        versioninfo v_id,
+        personname pn_id
+        from
+        person
+    </select>
+    <delete id="deletePersonById">
+        delete from person where id = #{id}
+    </delete>
+    <resultMap id="person" type="com.csw.model.Person">
+        <id property="id" column="id"/>
+        <result property="home" column="home"/>
+        <result property="lid" column="lid"/>
+        <association property="description" resultMap="com.myown.ResultMap.internationalString" columnPrefix="d_"/>
+        <association property="name" resultMap="com.myown.ResultMap.internationalString" columnPrefix="n_"/>
+        <association property="objectType" resultMap="com.myown.ResultMap.objectRef" columnPrefix="o_"/>
+        <association property="status" resultMap="com.myown.ResultMap.objectRef" columnPrefix="s_"/>
+        <association property="versionInfo" resultMap="com.myown.ResultMap.versionInfo" columnPrefix="v_"/>
+        <association property="personName" resultMap="com.myown.ResultMap.personName" columnPrefix="pn_"/>
+    </resultMap>
+</mapper>

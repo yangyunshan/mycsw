@@ -1,0 +1,13 @@
+/*#login a{*/
+/*    color: #559ee9;*/
+/*    font-size: 15px;*/
+/*}*/
+
+.col-lg-6 li a {
+    color: #559ee9;
+    font-size: 15px;
+}
+
+.col-lg-6 li a:hover {
+    color: blue;
+}

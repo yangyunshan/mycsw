@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSW - User Manager</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.0/css/ol.css"
+          type="text/css">
+    <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="../css/animate.css">
+
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../css/magnific-popup.css">
+
+    <link rel="stylesheet" href="../css/aos.css">
+    <link rel="stylesheet" href="../css/mtree.css">
+
+    <link rel="stylesheet" href="../css/ionicons.min.css">
+    <link rel="stylesheet" href="../css/paging.css">
+
+    <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../css/jquery.timepicker.css">
+    <link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css">
+
+    <link rel="stylesheet" href="../css/openLayer.css">
+    <link rel="stylesheet" href="../css/flaticon.css">
+    <link rel="stylesheet" href="../css/icomoon.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styleNav.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/dataQuery.css">
+</head>
+<header>
+    <div class="container">
+        <div class="header-div">
+            <ul class="list-inline">
+                <div class="row">
+                    <div class="col-lg-6" style="text-align: left">
+                        <li id="welcome">欢迎!&nbsp&nbsp</li>
+                        <li id="logout"><a href="../logout">登出</a></li>
+                    </div>
+                    <div class="col-lg-6">
+                        <li id="login"><a href="login.html">登陆</a></li>
+                        <li id="register"><a href="register.html">注册</a></li>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+</header>
+<body>
+
+<div style="padding-left: 30px">
+    <a class="navbar-brand" href="../index.html"><img src="../images/logo.png" height="70" width="520"></a>
+</div>
+<div class="header-wrap-self">
+    <div class="navwrap-self">
+        <div id="nav-self">
+            <div class="navbar-self clearfix-self">
+                <a href="../index.html">首页</a>
+                <a href="dataQuery.html">数据查询</a>
+                <a href="dataManager.html">数据管理</a>
+                <a class="current-self" href="userManager.html">用户管理</a>
+                <a href="about.html" style="float: right">关于</a>
+                <a href="contact.html" style="float: right">联系</a>
+            </div>
+            <div class="pros-self subpage-self">
+                <h2>全部数据分类<img src="images/dropdown.png" width="12px" height="12px" style="margin-left: 1rem"></h2>
+                <ul class="prosul-self clearfix-self" id="proinfo">
+                    <li class="geologicalHazardData">
+                        <i>&gt;</i>
+                        <a class="ti" href="html/geologicalHazardData.html" target="_blank">地质灾害数据</a>
+                    </li>
+                    <li class="waterResourcesData">
+                        <i>&gt;</i>
+                        <a class="ti" href="html/waterResourcesData.html" target="_blank">水资源数据</a>
+                    </li>
+                    <li class="ecologicalData">
+                        <i>&gt;</i>
+                        <a class="ti" href="html/ecologicalData.html" target="_blank">生态数据</a>
+                    </li>
+                    <li class="climateData">
+                        <i>&gt;</i>
+                        <a class="ti" href="html/climateData.html" target="_blank">气候数据</a>
+                    </li>
+                    <li class="environmentData">
+                        <i>&gt;</i>
+                        <a class="ti" href="html/environmentData.html" target="_blank">环境数据</a>
+                    </li>
+                    <li class="keyBandData">
+                        <i>&gt;</i>
+                        <a class="ti" href="html/keyBandData.html" target="_blank">关键带数据</a>
+                    </li>
+                    <li class="stratigraphicPaleontologyData">
+                        <i>&gt;</i>
+                        <a class="ti" href="html/stratigraphicPaleontologyData.html" target="_blank">地层古生物数据</a>
+                    </li>
+                    <li class="mineralResourceData">
+                        <i>&gt;</i>
+                        <a class="ti" href="html/mineralResourceData.html" target="_blank">矿产资源数据</a>
+                    </li>
+                    <li class="energyData">
+                        <i>&gt;</i>
+                        <a class="ti" href="html/energyData.html" target="_blank">能源数据</a>
+                    </li>
+                    <li class="literaturePictureData">
+                        <i>&gt;</i>
+                        <a class="ti" href="html/literaturePictureData.html" target="_blank">文献图片资料数据</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END nav -->
+
+<section class="ftco-section ftco-degree-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 sidebar ftco-animate">
+                <div id="menu">
+                    <ul id="accordion" class="accordion">
+                        <li>
+                            <div class="link" onclick="showSpatialResult()">空间数据查询</div>
+                            <ul class="submenu">
+                                <div id="basicQuery">
+                                    <hr>
+                                    <strong>基础查询</strong>
+                                    <hr>
+                                    <div></div>
+                                    </form>
+                                    <table>
+                                        <tr>
+                                            <td>数据ID：</td>
+                                            <td>
+                                                <form id="getRecordById" method="get">
+                                                    <input type="text" name="id" required="required">
+                                                    <input type="button" class="customButton" value="查询" onclick="getRecordById()">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>数据名称：</td>
+                                            <td>
+                                                <form id="getRecordsByName" method="get">
+                                                    <input type="text" name="name" required="required">
+                                                    <input type="button" class="customButton" value="查询"
+                                                           onclick="getRecordsByName()">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>关键字查询：</td>
+                                            <td>
+                                                <form id="getRecordsByKeywords" method="get">
+                                                    <input type="text" name="keywords" required="required">
+                                                    <input type="button" class="customButton" value="查询"
+                                                           onclick="getRecordsByKeywords()">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>组织结构：</td>
+                                            <td>
+                                                <form id="getRecordsByOrganization">
+                                                    <input type="text" name="organization" required="required">
+                                                    <input type="button" class="customButton" value="查询"
+                                                           onclick="getRecordsByOrganization()">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                        <tr>
+                                            <td>所有者：</td>
+                                            <td>
+                                                <form id="getRecordsByOwner">
+                                                    <input type="text" name="owner" required="required">
+                                                    <input type="button" class="customButton" value="查询"
+                                                           onclick="getRecordsByOwner()">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div id="spatialQuery">
+                                    <hr>
+                                    <strong>空间查询</strong>
+                                    <hr>
+                                    <p>BoundingBox:</p>
+                                    <hr>
+                                    <form id="getRecordsByBoundingBox" method="get">
+                                        <table class="envelope">
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td>North</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td><input type="text" name="north" required="required"></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>West</td>
+                                                <td><input type="text" name="west" required="required"></td>
+                                                <td>+</td>
+                                                <td><input type="text" name="east" required="required"></td>
+                                                <td>East</td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td><input type="text" name="south" required="required"></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td>South</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                    <input type="button" class="customButton" value="查询"
+                                                           onclick="getRecordsByBoundingBox()">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                </div>
+
+                                <div id="timeQuery">
+                                    <hr>
+                                    <strong>时间查询</strong>
+                                    <hr>
+                                    <table>
+                                        <tr>
+                                            <td>注册时间：</td>
+                                            <td>
+                                                <form>
+                                                    <input type="text" class="dateselect" name="registryDate" id="registryTime"
+                                                           required="required" style="float: left">
+                                                    <input type="button" class="customButton" value="查询"
+                                                           onclick="getRecordsByRegistryDate()">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <form>
+                                            <tr>
+                                                <td>起始时间：</td>
+                                                <td>
+                                                    <input type="text" class="dateselect" name="beginDate" id="startDate"
+                                                           required="required" style="float: left;width: 260px">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>结束时间：</td>
+                                                <td>
+                                                    <input type="text" name="endDate" class="dateselect" id="endDate"
+                                                           required="required" style="float: left;width: 260px">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td><input type="button" class="customButton" value="查询"
+                                                           onclick="getRecordsByStartAndEndDate()"></td>
+                                            </tr>
+                                        </form>
+                                    </table>
+                                </div>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="link" onclick="showGeneralResult()">非空间数据查询</div>
+                            <ul class="submenu">
+                                <div id="basicQueryNon">
+                                    <strong>基础查询</strong>
+                                    <hr>
+                                    <div></div>
+                                    </form>
+                                    <table>
+                                        <tr>
+                                            <td>数据ID：</td>
+                                            <td>
+                                                <form id="getRecordByIdNon" method="get">
+                                                    <input type="text" name="id" required="required">
+                                                    <input type="button" class="customButton" value="查询" onclick="getRecordByIdNon()">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>数据名称：</td>
+                                            <td>
+                                                <form id="getRecordsByNameNon" method="get">
+                                                    <input type="text" name="name" required="required">
+                                                    <input type="button" class="customButton" value="查询"
+                                                           onclick="getRecordsByNameNon()">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>关键字查询：</td>
+                                            <td>
+                                                <form id="getRecordsByKeywordsNon" method="get">
+                                                    <input type="text" name="keywords" required="required">
+                                                    <input type="button" class="customButton" value="查询"
+                                                           onclick="getRecordsByKeywordsNon()">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>组织结构：</td>
+                                            <td>
+                                                <form id="getRecordsByOrganizationNon">
+                                                    <input type="text" name="organization" required="required">
+                                                    <input type="button" class="customButton" value="查询"
+                                                           onclick="getRecordsByOrganizationNon()">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                        <tr>
+                                            <td>所有者：</td>
+                                            <td>
+                                                <form id="getRecordsByOwnerNon">
+                                                    <input type="text" name="owner" required="required">
+                                                    <input type="button" class="customButton" value="查询"
+                                                           onclick="getRecordsByOwnerNon()">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <hr>
+                                </div>
+                                <div id="timeQueryNon">
+                                    <hr>
+                                    <strong>时间查询</strong>
+                                    <hr>
+                                    <table>
+                                        <tr>
+                                            <td>注册时间：</td>
+                                            <td>
+                                                <form>
+                                                    <input type="text" class="dateselect" name="registryDate" id="registryTimeNon"
+                                                           required="required" style="float: left">
+                                                    <input type="button" class="customButton" value="查询"
+                                                           onclick="getRecordsByRegistryDateNon()">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-8 order-md-last ftco-animate">
+                <h2 class="mb-3">查询结果:</h2>
+                <section class="ftco-section">
+                    <div class="container">
+                        <div id="generalResult">
+                            <div class="row">
+
+                                <div id="result0" class="col-md-6">
+                                    <div class="property-wrap ftco-animate">
+                                        <div class="text">
+                                            <a id="id0" style="display: none"></a>
+                                            <h3><a id="name0" href="javascript:void(0)"
+                                                   onclick="toDetail(document.getElementById('id0'))"></a></h3>
+                                            <span id="time0" href="javascript:void(0)"></span><br>
+                                            <span id="type0" href="javascript:void(0)"></span><br>
+                                            <a href="javascript:void(0)" onclick="toDetail(document.getElementById('id0'))"
+                                               class="d-flex align-items-center justify-content-center btn-custom">
+                                                <span class="ion-ios-link"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="result1" class="col-md-6">
+                                    <div class="property-wrap ftco-animate">
+                                        <div class="text">
+                                            <a id="id1" style="display: none"></a>
+                                            <h3><a id="name1" href="javascript:void(0)"
+                                                   onclick="toDetail(document.getElementById('id1'))"></a></h3>
+                                            <span id="time1" href="javascript:void(0)"></span><br>
+                                            <span id="type1" href="javascript:void(0)"></span><br>
+                                            <a href="javascript:void(0)" onclick="toDetail(document.getElementById('id1'))"
+                                               class="d-flex align-items-center justify-content-center btn-custom">
+                                                <span class="ion-ios-link"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="result2" class="col-md-6">
+                                    <div class="property-wrap ftco-animate">
+                                        <div class="text">
+                                            <a id="id2" style="display: none"></a>
+                                            <h3><a id="name2" href="javascript:void(0)"
+                                                   onclick="toDetail(document.getElementById('id2'))"></a></h3>
+                                            <span id="time2" href="javascript:void(0)"></span><br>
+                                            <span id="type2" href="javascript:void(0)"></span><br>
+                                            <a href="javascript:void(0)" onclick="toDetail(document.getElementById('id2'))"
+                                               class="d-flex align-items-center justify-content-center btn-custom">
+                                                <span class="ion-ios-link"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="result3" class="col-md-6">
+                                    <div class="property-wrap ftco-animate">
+                                        <div class="text">
+                                            <a id="id3" style="display: none"></a>
+                                            <h3><a id="name3" href="javascript:void(0)"
+                                                   onclick="toDetail(document.getElementById('id3'))"></a></h3>
+                                            <span id="time3" href="javascript:void(0)"></span><br>
+                                            <span id="type3" href="javascript:void(0)"></span><br>
+                                            <a href="javascript:void(0)" onclick="toDetail(document.getElementById('id3'))"
+                                               class="d-flex align-items-center justify-content-center btn-custom">
+                                                <span class="ion-ios-link"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="result4" class="col-md-6">
+                                    <div class="property-wrap ftco-animate">
+                                        <div class="text">
+                                            <a id="id4" style="display: none"></a>
+                                            <h3><a id="name4" href="javascript:void(0)"
+                                                   onclick="toDetail(document.getElementById('id4'))"></a></h3>
+                                            <span id="time4" href="javascript:void(0)"></span><br>
+                                            <span id="type4" href="javascript:void(0)"></span><br>
+                                            <a href="javascript:void(0)" onclick="toDetail(document.getElementById('id4'))"
+                                               class="d-flex align-items-center justify-content-center btn-custom">
+                                                <span class="ion-ios-link"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="result5" class="col-md-6">
+                                    <div class="property-wrap ftco-animate">
+                                        <div class="text">
+                                            <a id="id5" style="display: none"></a>
+                                            <h3><a id="name5" href="javascript:void(0)"
+                                                   onclick="toDetail(document.getElementById('id5'))"></a></h3>
+                                            <span id="time5" href="javascript:void(0)"></span><br>
+                                            <span id="type5" href="javascript:void(0)"></span><br>
+                                            <a href="javascript:void(0)" onclick="toDetail(document.getElementById('id5'))"
+                                               class="d-flex align-items-center justify-content-center btn-custom">
+                                                <span class="ion-ios-link"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="result6" class="col-md-6">
+                                    <div class="property-wrap ftco-animate">
+                                        <div class="text">
+                                            <a id="id6" style="display: none"></a>
+                                            <h3><a id="name6" href="javascript:void(0)"
+                                                   onclick="toDetail(document.getElementById('id6'))"></a></h3>
+                                            <span id="time6" href="javascript:void(0)"></span><br>
+                                            <span id="type6" href="javascript:void(0)"></span><br>
+                                            <a href="javascript:void(0)" onclick="toDetail(document.getElementById('id6'))"
+                                               class="d-flex align-items-center justify-content-center btn-custom">
+                                                <span class="ion-ios-link"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="result7" class="col-md-6">
+                                    <div class="property-wrap ftco-animate">
+                                        <div class="text">
+                                            <a id="id7" style="display: none"></a>
+                                            <h3><a id="name7" href="javascript:void(0)"
+                                                   onclick="toDetail(document.getElementById('id7'))"></a></h3>
+                                            <span id="time7" href="javascript:void(0)"></span><br>
+                                            <span id="type7" href="javascript:void(0)"></span><br>
+                                            <a href="javascript:void(0)" onclick="toDetail(document.getElementById('id7'))"
+                                               class="d-flex align-items-center justify-content-center btn-custom">
+                                                <span class="ion-ios-link"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="result8" class="col-md-6">
+                                    <div class="property-wrap ftco-animate">
+                                        <div class="text">
+                                            <a id="id8" style="display: none"></a>
+                                            <h3><a id="name8" href="javascript:void(0)"
+                                                   onclick="toDetail(document.getElementById('id8'))"></a></h3>
+                                            <span id="time8" href="javascript:void(0)"></span><br>
+                                            <span id="type8" href="javascript:void(0)"></span><br>
+                                            <a href="javascript:void(0)" onclick="toDetail(document.getElementById('id8'))"
+                                               class="d-flex align-items-center justify-content-center btn-custom">
+                                                <span class="ion-ios-link"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="result9" class="col-md-6">
+                                    <div class="property-wrap ftco-animate">
+                                        <div class="text">
+                                            <a id="id9" style="display: none"></a>
+                                            <h3><a id="name9" href="javascript:void(0)"
+                                                   onclick="toDetail(document.getElementById('id9'))"></a></h3>
+                                            <span id="time9" href="javascript:void(0)"></span><br>
+                                            <span id="type9" href="javascript:void(0)"></span><br>
+                                            <a href="javascript:void(0)" onclick="toDetail(document.getElementById('id9'))"
+                                               class="d-flex align-items-center justify-content-center btn-custom">
+                                                <span class="ion-ios-link"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--			  分页器-->
+                            <div class="box" id="box"></div>
+                            <!--			  -->
+                        </div>
+                        <div id="spatialResult">
+                            <div id="map" class="map" style="height: 600px;width: 800px;"></div>
+                            <div id="popup" class="ol-popup">
+                                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                                <div id="popup-content"></div>
+                            </div>
+                            <div id="mouse-position"></div>
+                        </div>
+                    </div>
+                </section>
+
+            </div> <!-- .col-md-8 -->
+
+        </div>
+    </div>
+</section> <!-- .section -->
+
+<footer class="ftco-footer ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>&copy;中国地质大学(武汉)</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+
+<script src="../js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.0/build/ol.js"></script>
+<script src="../js/jquery-migrate-3.0.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.easing.1.3.js"></script>
+<script src="../js/jquery.waypoints.min.js"></script>
+<script src="../js/jquery.stellar.min.js"></script>
+<script src="../js/owl.carousel.min.js"></script>
+<script src="../js/jquery.magnific-popup.min.js"></script>
+<script src="../js/aos.js"></script>
+<script src="../js/jquery.animateNumber.min.js"></script>
+<script src="../js/bootstrap-datepicker.js"></script>
+<script src="../js/jquery.timepicker.min.js"></script>
+<script src="../js/scrollax.min.js"></script>
+<script src="../js/paging.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/mtree.js"></script>
+<script src="../js/dataQuery.js"></script>
+<script src="../js/bootstrap-datetimepicker.min.js"></script>
+<script src="../js/menu.js"></script>
+
+</body>
+</html>

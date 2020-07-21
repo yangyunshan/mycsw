@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.ClassificationDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="classification.id">
+        insert into classification(id,home,lid,description,name,objecttype,status,
+        versioninfo,noderepresentation,classificationnode,classificationscheme,
+        classifiedobject,classification_id) values (#{classification.id},#{classification.home},
+        #{classification.lid},#{classification.description.id},#{classification.name.id},
+        #{classification.objectType.id},#{classification.status.id},#{classification.versionInfo.id},
+        #{classification.nodeRepresentation},#{classification.classificationNode.id},
+        #{classification.classificationScheme.id},#{classification.classifiedObject.id},
+        #{classificationId})
+    </insert>
+    <select id="selectClassificationsBy_Id" resultMap="classification">
+        select
+        id,
+        home,
+        lid,
+        noderepresentation,
+        description d_id,
+        name n_id,
+        objecttype o_id,
+        status s_id,
+        versioninfo v_id,
+        classificationnode cn_id,
+        classificationscheme cs_id,
+        classifiedobject co_id
+        from
+        classification
+        where
+        classification_id = #{classificationId}
+    </select>
+    <resultMap id="classification" type="com.csw.model.Classification">
+        <id property="id" column="id"/>
+        <result property="home" column="home"/>
+        <result property="lid" column="lid"/>
+        <result property="nodeRepresentation" column="noderepresentation"/>
+        <association property="description" resultMap="com.myown.ResultMap.internationalString" columnPrefix="d_"/>
+        <association property="name" resultMap="com.myown.ResultMap.internationalString" columnPrefix="n_"/>
+        <association property="objectType" resultMap="com.myown.ResultMap.objectRef" columnPrefix="o_"/>
+        <association property="status" resultMap="com.myown.ResultMap.objectRef" columnPrefix="s_"/>
+        <association property="versionInfo" resultMap="com.myown.ResultMap.versionInfo" columnPrefix="v_"/>
+        <association property="classificationNode" resultMap="com.myown.ResultMap.objectRef" columnPrefix="cn_"/>
+        <association property="classificationScheme" resultMap="com.myown.ResultMap.objectRef" columnPrefix="cs_"/>
+        <association property="classifiedObject" resultMap="com.myown.ResultMap.objectRef" columnPrefix="co_"/>
+    </resultMap>
+    <delete id="deleteClassificationById">
+        delete from classification where id = #{id}
+    </delete>
+</mapper>

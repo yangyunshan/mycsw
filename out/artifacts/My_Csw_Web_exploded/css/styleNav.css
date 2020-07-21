@@ -1,0 +1,60 @@
+@charset "utf-8";
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;color:#333;text-decoration:none;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+.hide{display:none}
+.clearfix-self:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0}
+.clearfix-self{*zoom:1}
+em,i,s{font-style:normal;}
+
+/* 导航样式 */
+.header-wrap-self{background-color:#559ee9;width:100%}
+.navwrap-self{background:#559ee9;height:38px;border-top:1px #559ee9 solid;border-bottom:1px #559ee9 solid;box-shadow:0 1px 2px #999;-webkit-box-shadow:0 1px 2px #999;-moz-box-shadow:0 1px 2px #999}
+#nav-self{height:36px;width:980px;margin:0 auto;position:relative;padding:0;z-index:99}
+.navbar-self{height:36px;padding-left:0px;position:relative;width: 1200px}
+.navbar-self a{float:left;width:auto;text-align:center;height:36px;line-height:36px;color:#fff;padding:0 15px;text-decoration:none;font-size:15px;font-family:"\5FAE\8F6F\96C5\9ED1";white-space:nowrap;border-right:0px black solid;border-left:1px black solid;position:relative}
+/*.navbar-self a.first{border-left:0 none}*/
+.navbar-self a.last{border-right:0 none}
+.navbar-self a:hover{background-color:white;color:rgba(0,0,0,0.3)}
+.navbar-self a.current-self{background-color:white;border-right:1px white solid;color: rgba(0,0,0,0.3)}
+.navbar-self a:hover{text-decoration:none;color: rgba(0,0,0,0.3)}
+.navbar-self a.current-self:hover{color:rgba(0,0,0,0.3);}
+
+.pros-self{position:absolute;top:-1px;left:-210px;z-index:1000;width:210px;background-color:#559ee9}
+.pros-self h2{width:194px;height:38px;margin-bottom: 0;line-height:38px;color:#fff;padding-left:16px;font-size:16px;font-weight:400;font-family:"\5FAE\8F6F\96C5\9ED1"}
+.subpage-self h2{cursor:pointer;}
+.subpage-self .prosul-self{display:none}
+.prosul-self{padding-left:3px;width:207px;margin-top:2px;_overflow:hidden}
+li.basicGeographyData{background-position:10px 15px}
+li.geologicalHazardData{background-position:10px -35px}
+li.waterResourcesData{background-position:10px -35px}
+li.ecologicalData{background-position:10px -85px}
+li.climateData{background-position:10px -135px}
+li.environmentData{background-position:10px -185px}
+li.keyBandData{background-position:10px -235px}
+li.stratigraphicPaleontologyData{background-position:10px -235px}
+li.mineralResourceData{background-position:10px -235px}
+li.energyData{background-position:10px -235px}
+li.literaturePictureData{background-position:10px -235px}
+.prosul-self li{line-height:50px;height:50px;_overflow:hidden;border-bottom:1px white dashed;margin-right:3px;padding-left:38px}
+.prosul-self li.prosahover{border-bottom:1px #fff solid;background-color:#fff;margin-right:0;padding-right:3px;}
+.prosul-self a{color:#ffd0c0;padding-right:8px;_padding-right:6px;white-space:nowrap;display:inline-block;height:50px}
+.prosul-self li.prosahover a{color:#636363}
+.prosul-self li a.ti{font-size:14px;font-family:"\5FAE\8F6F\96C5\9ED1";color:#fff}
+.prosul-self li.prosahover a.ti{color:rgba(0,0,0,0.3)}
+.prosul-self li a:hover{color:rgba(0,0,0,0.3)}
+.prosul-self li.nochild a:hover{color:#fff}
+.prosul-self li i{float:right;display:block;width:3px;height:50px;text-indent:-999em;background-position:0 -276px;padding-right:12px}
+.prosul-self li.prosahover i{background-position:0 -326px}
+.prosul-self li.last{border-bottom:0 none}
+.prosul-self li.bd-solid{border-bottom:1px #c22900 solid}
+
+.prosul-self li h2{padding-left:0;line-height:40px;display:inline;font-size:14px;font-weight:400;}
+.prosul-self li.prosahover h2{color:#d03322}
+.prosmore-self{padding:15px 0 15px 15px;position:absolute;z-index:999;left:210px;top:38px;background-color:#fff;border:2px #d03322 solid;border-left:0 none;width:214px;height:382px}
+.prosul-self .prosmore{text-align:left}
+.prosul-self .prosmore span{float:left;height:36px;width:107px;line-height:22px}
+.prosul-self li .prosmore a{height:18px;line-height:18px;padding:0 4px}
+.prosul-self li .prosmore a:hover{background-color:#d03322;color:#fff}
+.prosmore-self em{font-weight:400;padding-top:9px;display:inline-block}
+/*.prosmore-self em.morehot{background:url(/images/icon-hot-more.png) right top no-repeat;padding-right:22px}*/

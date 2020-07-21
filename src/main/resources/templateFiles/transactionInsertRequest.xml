@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csw:Transaction xmlns:csw="http://www.opengis.net/cat/csw/2.0.2" version="2.0.2" service="CSW">
+  <csw:Insert>
+    <gmd:MD_Metadata xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml" ....>
+    ...
+    </gmd:MD_Metadata>
+  </csw:Insert>
+</csw:Transaction>

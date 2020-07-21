@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.PostalAddressDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="postalAddress.id">
+        insert into postaladdress(id,city,country,postalcode,stateorprovince,street,
+        streetnumber,postaladdress_id)
+        values(#{postalAddress.id},#{postalAddress.city},#{postalAddress.country},
+        #{postalAddress.postalCode},#{postalAddress.stateOrProvince},
+        #{postalAddress.street},#{postalAddress.streetNumber},#{postalAddressId})
+    </insert>
+    <select id="selectPostalAddressesBy_Id" resultMap="postalAddress">
+        select
+        id,
+        city,
+        country,
+        postalcode,
+        stateorprovince,
+        street,
+        streetnumber
+        from
+        postaladdress
+        where
+        postaladdress_id = #{postalAddressId}
+    </select>
+    <delete id="deletePostalAddressById">
+        delete from postaladdress where id = #{id}
+    </delete>
+    <resultMap id="postalAddress" type="com.csw.model.PostalAddress">
+        <id property="id" column="id"/>
+        <result property="city" column="city"/>
+        <result property="country" column="country"/>
+        <result property="postalCode" column="postalcode"/>
+        <result property="stateOrProvince" column="stateorprovince"/>
+        <result property="street" column="street"/>
+        <result property="streetNumber" column="streetnumber"/>
+    </resultMap>
+</mapper>

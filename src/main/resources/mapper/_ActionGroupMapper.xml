@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao._ActionGroupDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="actionGroup.id">
+        insert into _actiongroup (actionid,groupid,masterid,mastername,createdate)
+        values (#{actionGroup.actionId},#{actionGroup.groupId},#{actionGroup.masterId},
+        #{actionGroup.masterName},#{actionGroup.createDate})
+    </insert>
+    <select id="selectAllActionGroups" resultMap="actionGroup">
+        select * from _actiongroup
+    </select>
+    <select id="selectActionGroupById" resultMap="actionGroup">
+        select * from _actiongroup where id = #{id}
+    </select>
+    <select id="selectActionGroupByGroupId" resultMap="actionGroup">
+        select * from _actiongroup where groupid = #{groupId}
+    </select>
+    <delete id="deleteActionGroupById">
+        delete from _actiongroup where id = #{id}
+    </delete>
+    <resultMap id="actionGroup" type="com.csw.privileage.util.ActionGroup">
+        <id property="id" column="id"/>
+        <result property="actionId" column="actionid"/>
+        <result property="groupId" column="groupid"/>
+        <result property="masterId" column="masterid"/>
+        <result property="masterName" column="mastername"/>
+        <result property="createDate" column="createdate"/>
+    </resultMap>
+</mapper>

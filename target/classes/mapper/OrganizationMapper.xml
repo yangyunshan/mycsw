@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.OrganizationDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="organization.id">
+        insert into organization(id,home,lid,description,name,objecttype,status,
+        versioninfo,parent,primarycontact) values(#{organization.id},#{organization.home},
+        #{organization.lid},#{organization.description.id},
+        #{organization.name.id},#{organization.objectType.id},#{organization.status.id},
+        #{organization.versionInfo.id},#{organization.parent.id},
+        #{organization.primaryContact.id})
+    </insert>
+
+    <select id="selectOrganizationById" resultMap="organization">
+        select
+        id,
+        home,
+        lid,
+        description d_id,
+        name n_id,
+        objecttype o_id,
+        status s_id,
+        versioninfo v_id,
+        parent p_id,
+        primarycontact pc_id
+        from
+        organization
+        where
+        id = #{id}
+    </select>
+
+    <select id="selectOrganizationByName" resultMap="organization">
+        select
+        id,
+        home,
+        lid,
+        description d_id,
+        name n_id,
+        objecttype o_id,
+        status s_id,
+        versioninfo v_id,
+        parent p_id,
+        primarycontact pc_id
+        from
+        organization
+        where
+        name = #{nameId}
+    </select>
+
+    <select id="selectAllOrganizations" resultMap="organization">
+        select
+        id,
+        home,
+        lid,
+        description d_id,
+        name n_id,
+        objecttype o_id,
+        status s_id,
+        versioninfo v_id,
+        parent p_id,
+        primarycontact pc_id
+        from
+        organization
+    </select>
+
+    <delete id="deleteOrganizationById">
+        delete from organization where id = #{id}
+    </delete>
+
+    <resultMap id="organization" type="com.csw.model.Organization">
+        <id property="id" column="id"/>
+        <result property="home" column="home"/>
+        <result property="lid" column="lid"/>
+        <association property="description" resultMap="com.myown.ResultMap.internationalString" columnPrefix="d_"/>
+        <association property="name" resultMap="com.myown.ResultMap.internationalString" columnPrefix="n_"/>
+        <association property="objectType" resultMap="com.myown.ResultMap.objectRef" columnPrefix="o_"/>
+        <association property="status" resultMap="com.myown.ResultMap.objectRef" columnPrefix="s_"/>
+        <association property="versionInfo" resultMap="com.myown.ResultMap.versionInfo" columnPrefix="v_"/>
+        <association property="parent" resultMap="com.myown.ResultMap.objectRef" columnPrefix="p_"/>
+        <association property="primaryContact" resultMap="com.myown.ResultMap.objectRef" columnPrefix="pc_"/>
+    </resultMap>
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.ObjectRefDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="objectRef.id">
+        insert into objectref(id,home,createreplica,objectref_id)
+        values(#{objectRef.id},#{objectRef.home},#{objectRef.createReplica},#{objectRefId})
+    </insert>
+    <select id="selectObjectRefById" resultMap="com.myown.ResultMap.objectRef">
+        select
+        id,
+        home,
+        createreplica
+        from
+        objectref
+        where
+        id = #{id}
+    </select>
+    <delete id="deleteObjectRefById">
+        delete from objectref where id = #{id}
+    </delete>
+</mapper>

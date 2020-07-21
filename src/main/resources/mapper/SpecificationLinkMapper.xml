@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.SpecificationLinkDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="specificationLink.id">
+        insert into specificationlink(id,home,lid,description,name,objecttype,status,
+        versioninfo,servicebinding,specificationobject,usagedescription,usageparameters,
+        specificationlink_id)
+        values(#{specificationLink.id},#{specificationLink.home},#{specificationLink.lid},
+        #{specificationLink.description.id},#{specificationLink.name.id},
+        #{specificationLink.objectType.id},#{specificationLink.status.id},
+        #{specificationLink.versionInfo.id},#{specificationLink.serviceBinding.id},
+        #{specificationLink.specificationObject.id},#{specificationLink.usageDescription.id},
+        #{specificationLink.usageParameters},#{specificationLinkId})
+    </insert>
+    <select id="selectSpecificationLinksBy_Id" resultMap="specificationLink">
+        select
+        id,
+        home,
+        lid,
+        description d_id,
+        name n_id,
+        objecttype o_id,
+        status s_id,
+        versioninfo v_id,
+        servicebinding sb_id,
+        specificationobject so_id,
+        usagedescription ud_id
+        from
+        specificationlink
+        where
+        specificationlink_id = #{specificationLinkId}
+    </select>
+    <delete id="deleteSpecificationLinkById">
+        delete from specificationlink where id = #{id}
+    </delete>
+    <resultMap id="specificationLink" type="com.csw.model.SpecificationLink">
+        <id property="id" column="id"/>
+        <result property="home" column="home"/>
+        <result property="lid" column="lid"/>
+        <result property="usageParameters" column="usageparameters"/>
+        <association property="description" resultMap="com.myown.ResultMap.internationalString" columnPrefix="d_"/>
+        <association property="name" resultMap="com.myown.ResultMap.internationalString" columnPrefix="n_"/>
+        <association property="objectType" resultMap="com.myown.ResultMap.objectRef" columnPrefix="o_"/>
+        <association property="status" resultMap="com.myown.ResultMap.objectRef" columnPrefix="s_"/>
+        <association property="versionInfo" resultMap="com.myown.ResultMap.versionInfo" columnPrefix="v_"/>
+        <association property="serviceBinding" resultMap="com.myown.ResultMap.objectRef" columnPrefix="sb_"/>
+        <association property="specificationObject" resultMap="com.myown.ResultMap.objectRef" columnPrefix="so_"/>
+        <association property="usageDescription" resultMap="com.myown.ResultMap.internationalString" columnPrefix="ud_"/>
+    </resultMap>
+</mapper>

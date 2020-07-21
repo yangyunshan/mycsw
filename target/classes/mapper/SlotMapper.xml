@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.SlotDAO">
+    <insert id="insertData" useGeneratedKeys="false" keyProperty="slot.id">
+        insert into slot(id,name,slottype,value,slot_id)
+        values(#{slot.id},#{slot.name},#{slot.slotType},#{slot.values},#{slotId})
+    </insert>
+
+    <resultMap id="slot" type="com.csw.model.Slot">
+        <id column="id" property="id"/>
+        <result property="name" column="name"/>
+        <result property="slotType" column="slottype"/>
+        <result property="values" column="value"/>
+    </resultMap>
+
+    <select id="selectSlotsBy_Id" resultMap="slot">
+        select
+        id,
+        name,
+        slottype,
+        value
+        from
+        slot
+        where
+        slot_id = #{slotId}
+    </select>
+
+    <select id="selectSlotsByFuzzNameAndValue" resultMap="slot">
+        select
+        id,
+        name,
+        slottype,
+        value
+        from
+        slot
+        where
+        name like #{fuzzName} and value like #{fuzzValue}
+    </select>
+
+    <select id="selectSlotsByFuzzNameAndId" resultMap="slot">
+        select
+        id,
+        name,
+        slottype,
+        value
+        from
+        slot
+        where
+        name like #{fuzzName} and slot_id = #{fuzzSlotId}
+    </select>
+
+    <delete id="deleteSlotById">
+        delete from slot where id = #{id}
+    </delete>
+</mapper>

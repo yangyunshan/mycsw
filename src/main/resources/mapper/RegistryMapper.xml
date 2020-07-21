@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.RegistryDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="registry.id">
+        insert into registry(id,home,lid,description,name,objecttype,status,
+        versioninfo,cataloguinglatency,conformanceprofile,operator,replicationsynclatency,
+        specificationversion) values(#{registry.id},#{registry.home},#{registry.lid},
+        #{registry.description.id},#{registry.name.id},#{registry.objectType.id},
+        #{registry.status.id},#{registry.versionInfo.id},#{registry.cataloguinglatency},
+        #{registry.conformanceProfile},#{registry.operator.id},#{registry.replicationSyncLatency},
+        #{registry.specificationVersion})
+    </insert>
+    <select id="selectRegistryById" resultMap="registry">
+        select
+        id,
+        home,
+        lid,
+        cataloginglatency,
+        conformanceprofile,
+        replicationsynclatency,
+        specificationversion,
+        description d_id,
+        name n_id,
+        objecttype o_id,
+        status s_id,
+        versioninfo v_id,
+        operator op_id
+        from
+        registry
+        where
+        id = #{id}
+    </select>
+    <delete id="deleteRegistryById">
+        delete from registry where id = #{id}
+    </delete>
+    <resultMap id="registry" type="com.csw.model.Registry">
+        <id property="id" column="id"/>
+        <result property="home" column="home"/>
+        <result property="lid" column="lid"/>
+        <result property="catalogingLatency" column="cataloginglatency"/>
+        <result property="conformanceProfile" column="conformanceprofile"/>
+        <result property="replicationSyncLatency" column="replicationsynclatency"/>
+        <result property="specificationVersion" column="specificationversion"/>
+        <association property="description" resultMap="com.myown.ResultMap.internationalString" columnPrefix="d_"/>
+        <association property="name" resultMap="com.myown.ResultMap.internationalString" columnPrefix="n_"/>
+        <association property="objectType" resultMap="com.myown.ResultMap.objectRef" columnPrefix="o_"/>
+        <association property="status" resultMap="com.myown.ResultMap.objectRef" columnPrefix="s_"/>
+        <association property="versionInfo" resultMap="com.myown.ResultMap.versionInfo" columnPrefix="v_"/>
+        <association property="operator" resultMap="com.myown.ResultMap.objectRef" columnPrefix="op_"/>
+    </resultMap>
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myown.ResultMap">
+    <resultMap id="internationalString" type="com.csw.model.InternationalString">
+        <id property="id" column="id"/>
+    </resultMap>
+    <resultMap id="objectRef" type="com.csw.model.ObjectRef">
+        <id property="id" column="id"/>
+    </resultMap>
+    <resultMap id="versionInfo" type="com.csw.model.VersionInfo">
+        <id property="id" column="id"/>
+        <result property="versionName" column="versionname"/>
+        <result property="comment" column="comment"/>
+    </resultMap>
+    <resultMap id="personName" type="com.csw.model.PersonName">
+        <id property="id" column="id"/>
+        <result property="firstName" column="firstname"/>
+        <result property="middleName" column="middlename"/>
+        <result property="lastName" column="lastname"/>
+    </resultMap>
+</mapper>

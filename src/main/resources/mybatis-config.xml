@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <properties resource="db.properties"></properties>
+    <settings>
+        <!-- 使用jdbc的getGeneratedKeys获取数据库自增主键值 -->
+        <setting name="useGeneratedKeys" value="true" />
+
+        <!-- 使用列别名替换列名 默认:true -->
+        <setting name="useColumnLabel" value="true" />
+
+        <!-- 开启驼峰命名转换:Table{create_time} -> Entity{createTime} -->
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
+<!--    <environments default="development">-->
+<!--        <environment id="development">-->
+<!--            <transactionManager type="JDBC"></transactionManager>-->
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="${postgresql.driver}"/>-->
+<!--                <property name="url" value="${postgresql.url}"/>-->
+<!--                <property name="username" value="${postgresql.username}"/>-->
+<!--                <property name="password" value="${postgresql.password}"/>-->
+<!--                <property name="poolMaximumActiveConnections" value="10"/>-->
+<!--                <property name="poolMaximumIdleConnections" value="0"/>-->
+<!--            </dataSource>-->
+<!--        </environment>-->
+<!--    </environments>-->
+<!--    <mappers>-->
+<!--        <mapper resource="mapper/AssociationMapper.xml"/>-->
+<!--        <mapper resource="mapper/ClassificationMapper.xml"/>-->
+<!--        <mapper resource="mapper/ClassificationNodeMapper.xml"/>-->
+<!--        <mapper resource="mapper/ClassificationSchemeMapper.xml"/>-->
+<!--        <mapper resource="mapper/EmailAddressMapper.xml"/>-->
+<!--        <mapper resource="mapper/ExternalIdentifierMapper.xml"/>-->
+<!--        <mapper resource="mapper/ExternalLinkMapper.xml"/>-->
+<!--        <mapper resource="mapper/ExtrinsicObjectMapper.xml"/>-->
+<!--        <mapper resource="mapper/FederationMapper.xml"/>-->
+<!--        <mapper resource="mapper/IdentifiableMapper.xml"/>-->
+<!--        <mapper resource="mapper/InternationalStringMapper.xml"/>-->
+<!--        <mapper resource="mapper/LocalizedStringMapper.xml"/>-->
+<!--        <mapper resource="mapper/ObjectRefMapper.xml"/>-->
+<!--        <mapper resource="mapper/OrganizationMapper.xml"/>-->
+<!--        <mapper resource="mapper/PersonMapper.xml"/>-->
+<!--        <mapper resource="mapper/PersonNameMapper.xml"/>-->
+<!--        <mapper resource="mapper/PostalAddressMapper.xml"/>-->
+<!--        <mapper resource="mapper/RegistryMapper.xml"/>-->
+<!--        <mapper resource="mapper/RegistryObjectMapper.xml"/>-->
+<!--        <mapper resource="mapper/RegistryPackageMapper.xml"/>-->
+<!--        <mapper resource="mapper/ServiceMapper.xml"/>-->
+<!--        <mapper resource="mapper/ServiceBindingMapper.xml"/>-->
+<!--        <mapper resource="mapper/SlotMapper.xml"/>-->
+<!--        <mapper resource="mapper/SpecificationLinkMapper.xml"/>-->
+<!--        <mapper resource="mapper/TelephoneNumberMapper.xml"/>-->
+<!--        <mapper resource="mapper/VersionInfoMapper.xml"/>-->
+<!--        <mapper resource="mapper/NotificationMapper.xml"/>-->
+<!--        <mapper resource="mapper/UserMapper.xml"/>-->
+<!--        <mapper resource="mapper/ResultMap.xml"/>-->
+<!--        <mapper resource="mapper/ActionMapper.xml"/>-->
+<!--        <mapper resource="mapper/GroupMapper.xml"/>-->
+<!--        <mapper resource="mapper/MasterMapper.xml"/>-->
+<!--        <mapper resource="mapper/MasterGroupMapper.xml"/>-->
+<!--        <mapper resource="mapper/ActionGroupMapper.xml"/>-->
+<!--        <mapper resource="mapper/DataMapper.xml"/>-->
+<!--    </mappers>-->
+</configuration>

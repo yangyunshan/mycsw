@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.ExtrinsicObjectDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="extrinsicObject.id">
+        insert into extrinsicobject(id,home,lid,description,name,objecttype,status,versioninfo,
+        mimetype,isopaque,contentversioninfo) values (#{extrinsicObject.id},#{extrinsicObject.home},
+        #{extrinsicObject.lid},#{extrinsicObject.description.id},#{extrinsicObject.name.id},
+        #{extrinsicObject.objectType.id},#{extrinsicObject.status.id},
+        #{extrinsicObject.versionInfo.id},#{extrinsicObject.mimeType},
+        #{extrinsicObject.isOpaque},#{extrinsicObject.contentVersionInfo.id})
+    </insert>
+    <select id="selectAllExtrinsicObjects" resultMap="extrinsicObject">
+        select
+        id,
+        home,
+        lid,
+        isopaque,
+        mimetype,
+        description d_id,
+        name n_id,
+        objecttype o_id,
+        status s_id,
+        versioninfo v_id,
+        contentversioninfo c_id
+        from
+        extrinsicobject
+    </select>
+    <select id="selectExtrinsicObjectById" resultMap="extrinsicObject">
+        select
+        id,
+        home,
+        lid,
+        isopaque,
+        mimetype,
+        description d_id,
+        name n_id,
+        objecttype o_id,
+        status s_id,
+        versioninfo v_id,
+        contentversioninfo c_id
+        from
+        extrinsicobject
+        where
+        id = #{id}
+    </select>
+    <delete id="deleteExtrinsicObjectById">
+        delete from extrinsicobject where id = #{id}
+    </delete>
+    <resultMap id="extrinsicObject" type="com.csw.model.ExtrinsicObject">
+        <id property="id" column="id"/>
+        <result property="home" column="home"/>
+        <result property="lid" column="lid"/>
+        <result property="isOpaque" column="isopaque"/>
+        <result property="mimeType" column="mimetype"/>
+        <association property="description" resultMap="com.myown.ResultMap.internationalString" columnPrefix="d_"/>
+        <association property="name" resultMap="com.myown.ResultMap.internationalString" columnPrefix="n_"/>
+        <association property="objectType" resultMap="com.myown.ResultMap.objectRef" columnPrefix="o_"/>
+        <association property="status" resultMap="com.myown.ResultMap.objectRef" columnPrefix="s_"/>
+        <association property="versionInfo" resultMap="com.myown.ResultMap.versionInfo" columnPrefix="v_"/>
+        <association property="contentVersionInfo" resultMap="com.myown.ResultMap.versionInfo" columnPrefix="c_"/>
+    </resultMap>
+</mapper>

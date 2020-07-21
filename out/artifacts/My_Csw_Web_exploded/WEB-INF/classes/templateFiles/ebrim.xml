@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rim:RegistryPackage xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/cat/wrs/1.0 http://schemas.opengis.net/csw/2.0.2/profiles/ebrim/1.0/csw-ebrim.xsd http://www.opengis.net/gml http://schemas.opengis.net/gml/3.1.1/base/gml.xsd" id="">
+  <rim:RegistryObjectList>
+    <wrs:ExtrinsicObject xmlns:wrs="http://www.opengis.net/cat/wrs/1.0" mimeType="application/xml" objectType="urn:ogc:def:objectType:OGC-CSW-ebRIM-Sensor::System" lid="urn:liesmars:remotesensor:platform:CBERS-2" id="urn:geographic:remoteimage:CUG-1">
+      <!--					*******************影像数据关键字的转换***************************					-->
+      <rim:Slot name="urn:ogc:def:slot:OGC-CSW-ebRIM-Image::Keywords" slotType="urn:oasis:names:tc:ebxml-regrep:DataType:String">
+        <rim:ValueList>
+        </rim:ValueList>
+      </rim:Slot>
+      <!--					*******************影响数据时间范围的转换***************************					-->
+      <rim:Slot name="urn:ogc:def:slot:OGC-CSW-ebRIM-Image::ValidTimeBegin" slotType="urn:oasis:names:tc:ebxml-regrep:DataType:DateTime">
+        <rim:ValueList>
+        </rim:ValueList>
+      </rim:Slot>
+      <rim:Slot name="urn:ogc:def:slot:OGC-CSW-ebRIM-Image::ValidTimeEnd" slotType="urn:oasis:names:tc:ebxml-regrep:DataType:DateTime">
+        <rim:ValueList>
+        </rim:ValueList>
+      </rim:Slot>
+      <!--					*******************影响数据分辨率的转换***************************					-->
+      <!--resolution-->
+      <rim:Slot name="urn:ogc:def:slot:OGC-CSW-ebRIM-Image::Resolution" slotType="urn:oasis:names:tc:ebxml-regrep:DataType:String">
+        <rim:ValueList>
+        </rim:ValueList>
+      </rim:Slot>
+      <!--					*******************影像数据目标区域范围的转换********************					-->
+      <rim:Slot name="urn:ogc:def:slot:OGC-CSW-ebRIM-Image::BoundedBy" slotType="urn:ogc:def:dataType:ISO-19107:2003:GM_Envelope">
+        <wrs:ValueList>
+          <wrs:AnyValue>
+            <gml:Envelope xmlns:gml="http://www.opengis.net/gml" srsName="urn:ogc:def:crs:EPSG:4326">
+              <gml:lowerCorner></gml:lowerCorner>
+              <gml:upperCorner></gml:upperCorner>
+            </gml:Envelope>
+          </wrs:AnyValue>
+        </wrs:ValueList>
+      </rim:Slot>
+      <!--					*******************影像数据大小的转换***************************					-->
+      <rim:Slot name="urn:ogc:def:slot:OGC-CSW-ebRIM-Image::Size" slotType="urn:oasis:names:tc:ebxml-regrep:DataType:String">
+        <rim:ValueList>
+        </rim:ValueList>
+      </rim:Slot>
+      <!--					*******************影像数据格式的转换***************************					-->
+      <rim:Slot name="urn:ogc:def:slot:OGC-CSW-ebRIM-Image::Format" slotType="urn:oasis:names:tc:ebxml-regrep:DataType:String">
+        <rim:ValueList>
+        </rim:ValueList>
+      </rim:Slot>
+      <!--******** 影像数据分类信息 ********-->
+      <rim:Classification id="urn:geographic:remoteimage:CUG-1:classification:I1" classifiedObject="urn:geographic:remoteimage:CUG-1" classificationNode="urn:geographic:remoteimage:CUG-1:urn:ogc:def:objectType:OGC-CSW-ebRIM-Image::I1"/>
+      <!--********影像数据描述信息***********-->
+      <rim:Description>
+        <rim:LocalizedString xml:lang="en-US" value="用于测试使用的影像数据的元数据"/>
+      </rim:Description>
+    </wrs:ExtrinsicObject>
+
+    <rim:ClassificationNode id="urn:geographic:remoteimage:CUG-1:urn:ogc:def:objectType:OGC-CSW-ebRIM-Image::I1" parent="urn:ogc:def:classificationScheme:OGC-CSW-ebRIM-Image::ImageType">
+      <rim:Name>
+        <rim:LocalizedString xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0" xml:lang="en-US" value="遥感影像"></rim:LocalizedString>
+      </rim:Name>
+    </rim:ClassificationNode>
+
+    <rim:Association id="urn:geographic:remoteimage:CUG-1:association:A1" associationType="urn:ogc:def:associationType::OGC-CSW-ebRIM-Image::SourceOf" sourceObject="urn:geographic:remoteimage:CUG-1" targetObject="urn:geographic:remoteimage:CUG-2"/>
+
+    <rim:Service id="urn:geographic:remoteimage:CUG-1:service:S1">
+      <rim:Classification id="urn:liesmars:remotesensor:platform:CBERS-2:classification:N66128" classifiedObject="urn:liesmars:remotesensor:platform:CBERS-2:service:N66128" classificationNode="urn:ogc:serviceType:SensorObservationService"/>
+      <rim:ServiceBinding id="urn:geographic:remoteimage:CUG-1:service:S2" service="urn:geographic:remoteimage:CUG-1:service:S1" accessURI="http://gsw.cug.edu.cn:8080/CSWv3.5.0/csw">
+        <rim:Name>
+          <rim:LocalizedString xml:lang="en-US" value="CSW"/>
+        </rim:Name>
+        <rim:Description>
+          <rim:LocalizedString xml:lang="en-US" value="CSW服务"/>
+        </rim:Description>
+      </rim:ServiceBinding>
+    </rim:Service>
+
+    <!--***********传感器管理人员联系方式************-->
+    <rim:Organization id="urn:geographic:remoteimage:CUG-1:org:O1" primaryContact="urn:geographic:remoteimage:CUG-1:org:O0">
+      <rim:Name>
+        <rim:LocalizedString value="中国地质大学(CUG)"/>
+      </rim:Name>
+      <rim:Address street="鲁磨路388号" city="武汉市" postalCode="027" country="中国"/>
+      <rim:EmailAddress address="78967148@qq.com"/>
+    </rim:Organization>
+    <rim:Person id="urn:geographic:remoteimage:CUG-1:person:P1">
+      <rim:PersonName firstname="杨" lastName="运山"/>
+    </rim:Person>
+     </rim:RegistryObjectList>
+</rim:RegistryPackage>

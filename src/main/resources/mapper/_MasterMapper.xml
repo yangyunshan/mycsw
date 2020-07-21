@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao._MasterDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="master.id">
+        insert into _master (mastername,password,truename,sex,birthday,dept,position,
+        phone,email,masterid2,mastername2,createdate)
+        values (#{master.masterName},#{master.password},#{master.trueName},#{master.sex},
+        #{master.birthday},#{master.dept},#{master.position},#{master.phone},#{master.email},
+        #{master.masterId2},#{master.masterName2},#{master.createDate})
+    </insert>
+    <select id="selectAllMasters" resultMap="master">
+        select * from _master
+    </select>
+    <select id="selectMasterByName" resultMap="master">
+        select * from _master where mastername = #{masterName}
+    </select>
+    <select id="selectMasterById" resultMap="master">
+        select * from _master where id = #{id}
+    </select>
+    <delete id="deleteMasterById">
+        delete from _master where id = #{id}
+    </delete>
+    <resultMap id="master" type="com.csw.privileage.util.Master">
+        <id property="id" column="id"/>
+        <result property="masterName" column="mastername"/>
+        <result property="password" column="password"/>
+        <result property="trueName" column="truename"/>
+        <result property="sex" column="sex"/>
+        <result property="birthday" column="birthday"/>
+        <result property="dept" column="dept"/>
+        <result property="position" column="position"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
+        <result property="masterId2" column="masterid2"/>
+        <result property="masterName2" column="mastername2"/>
+        <result property="createDate" column="createdate"/>
+    </resultMap>
+</mapper>

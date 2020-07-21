@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.ExternalIdentifierDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="externalIdentifier.id">
+        insert into externalidentifier(id,home,lid,description,name,objecttype,status,
+        versioninfo,identificationscheme,registryobject,value,externalidentifier_id)
+        values (#{externalIdentifier.id},#{externalIdentifier.home},
+        #{externalIdentifier.lid},#{externalIdentifier.description.id},
+        #{externalIdentifier.name.id},#{externalIdentifier.objectType.id},
+        #{externalIdentifier.status.id},#{externalIdentifier.versionInfo.id},
+        #{externalIdentifier.identificationSchme.id},#{externalIdentifier.registryObject.id},
+        #{externalIdentifier.value},#{externalIdentifierId})
+    </insert>
+    <select id="selectExternalIdentifiersBy_Id" resultMap="externalIdentifier">
+        select
+        id,
+        home,
+        lid,
+        value,
+        description d_id,
+        name n_id,
+        objecttype o_id,
+        status s_id,
+        versioninfo v_id,
+        identificationscheme is_id,
+        registryobject ro_id
+        from
+        externalidentifier
+        where
+        externalidentifier_id = #{externalIdentifierId}
+    </select>
+    <delete id="deleteExternalIdentifierById">
+        delete from externalidentifier where id = #{id}
+    </delete>
+    <resultMap id="externalIdentifier" type="com.csw.model.ExternalIdentifier">
+        <id property="id" column="id"/>
+        <result property="home" column="home"/>
+        <result property="lid" column="lid"/>
+        <result property="value" column="value"/>
+        <association property="description" resultMap="com.myown.ResultMap.internationalString" columnPrefix="d_"/>
+        <association property="name" resultMap="com.myown.ResultMap.internationalString" columnPrefix="n_"/>
+        <association property="objectType" resultMap="com.myown.ResultMap.objectRef" columnPrefix="o_"/>
+        <association property="status" resultMap="com.myown.ResultMap.objectRef" columnPrefix="s_"/>
+        <association property="versionInfo" resultMap="com.myown.ResultMap.versionInfo" columnPrefix="v_"/>
+        <association property="identificationScheme" resultMap="com.myown.ResultMap.objectRef" columnPrefix="is_"/>
+        <association property="registryObject" resultMap="com.myown.ResultMap.objectRef" columnPrefix="ro_"/>
+    </resultMap>
+</mapper>

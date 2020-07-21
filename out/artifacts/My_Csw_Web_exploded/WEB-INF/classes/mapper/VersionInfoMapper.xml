@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.VersionInfoDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="versionInfo.id">
+        insert into versioninfo(id,versionname,comment) values(#{versionInfo.id},
+        #{versionInfo.versionName},#{versionInfo.comment})
+    </insert>
+    <select id="selectVersionInfoById" resultMap="com.myown.ResultMap.versionInfo">
+        select
+        id,
+        versionname,
+        comment
+        from
+        versioninfo
+        where
+        id = #{id}
+    </select>
+    <delete id="deleteVersionInfoById">
+        delete from versioninfo where id = #{id}
+    </delete>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.PersonNameDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="personName.id">
+        insert into personname(id,firstname,middlename,lastname) values(#{personName.id},
+        #{personName.firstName},#{personName.middleName},#{personName.lastName})
+    </insert>
+    <select id="selectPersonNameById" resultMap="personName">
+        select
+        id,
+        firstname,
+        middlename,
+        lastname
+        from
+        personname
+        where
+        id = #{id}
+    </select>
+    <delete id="deletePersonNameById">
+        delete from personname where id = #{id}
+    </delete>
+    <resultMap id="personName" type="com.csw.model.PersonName">
+        <id property="id" column="id"/>
+        <result property="firstName" column="firstname"/>
+        <result property="middleName" column="middlename"/>
+        <result property="lastName" column="lastname"/>
+    </resultMap>
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao._ActionDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="action.id">
+        insert into _action (action,actionname)
+        values (#{action.action},#{action.actionName})
+    </insert>
+    <select id="selectAllActions" resultMap="action">
+        select
+        *
+        from 
+        _action
+    </select>
+    <select id="selectActionById" resultMap="action">
+        select 
+        *
+        from 
+        _action
+        where 
+        id = #{id}
+    </select>
+    <delete id="deleteActionById">
+        delete from _action where id = #{id}
+    </delete>
+    <resultMap id="action" type="com.csw.privileage.util.Action">
+        <id property="id" column="id"/>
+        <result property="action" column="action"/>
+        <result property="actionName" column="actionname"/>
+    </resultMap>
+</mapper>

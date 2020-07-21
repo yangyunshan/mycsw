@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.InternationalStringDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="internationalString.id">
+        insert into internationalstring(id) values (#{internationalString.id})
+    </insert>
+    <resultMap id="internationalString" type="com.csw.model.InternationalString">
+        <id column="id" property="id"/>
+    </resultMap>
+    <select id="selectInternationalStringsById" resultMap="internationalString">
+        select
+        id
+        from
+        internationalstring
+        where
+        id = #{id}
+    </select>
+    <delete id="deleteInternationalStringById">
+        delete from internationalstring where id = #{id}
+    </delete>
+</mapper>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.RegistryPackageDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="registryPackage.id" >
+        insert into registrypackage(id,home,lid,description,name,objecttype,status,versioninfo,type,owner,createtime)
+         values(#{registryPackage.id},#{registryPackage.home},#{registryPackage.lid},
+         #{registryPackage.description.id},#{registryPackage.name.id},
+         #{registryPackage.objectType.id},#{registryPackage.status.id},
+         #{registryPackage.versionInfo.id},#{registryPackage.type},#{registryPackage.owner},#{createTime})
+    </insert>
+
+    <select id="checkIdIsExist" resultType="boolean">
+        select count(id) from registrypackage where id = #{id}
+    </select>
+
+    <select id="getCountOfRecords" resultType="int">
+        select count(id) from registrypackage
+    </select>
+
+    <select id="getCountOfRecordsByFileType" resultType="int">
+        select count(id) from registrypackage where type = #{fileType}
+    </select>
+
+    <select id="getCountOfRecordsByowner" resultType="int">
+        select count(id) from registrypackage where owner = #{owner}
+    </select>
+
+    <select id="selectRegistryPackageLimited" resultMap="registryPackage">
+        select
+        id,
+        home,
+        lid,
+        type,
+        owner,
+        description AS d_id,
+        name AS n_id,
+        objecttype AS o_id,
+        status AS s_id,
+        versioninfo AS v_id
+        from
+        registrypackage
+        offset #{offsetIndex} limit #{limitCount}
+    </select>
+
+    <select id="selectNewestRegistryPackageLimited" resultMap="registryPackage">
+        select
+        id,
+        home,
+        lid,
+        type,
+        owner,
+        description AS d_id,
+        name AS n_id,
+        objecttype AS o_id,
+        status AS s_id,
+        versioninfo AS v_id
+        from
+        registrypackage
+        order by createtime desc
+        offset #{offsetIndex} limit #{limitCount}
+    </select>
+
+    <select id="selectTimeById" resultType="java.lang.String">
+        select createtime from registrypackage where id = #{id}
+    </select>
+
+    <select id="selectRegistryPackageByOwnerLimited" resultMap="registryPackage">
+        select
+        id,
+        home,
+        lid,
+        type,
+        owner,
+        description AS d_id,
+        name AS n_id,
+        objecttype AS o_id,
+        status AS s_id,
+        versioninfo AS v_id
+        from
+        registrypackage
+        where
+        owner = #{owner}
+        offset #{offsetIndex} limit #{limitCount}
+    </select>
+
+    <select id="selectRegistryPackageByFileTypeLimited" resultMap="registryPackage">
+        select
+        id,
+        home,
+        lid,
+        type,
+        owner,
+        description AS d_id,
+        name AS n_id,
+        objecttype AS o_id,
+        status AS s_id,
+        versioninfo AS v_id
+        from
+        registrypackage
+        where
+        type = #{fileType}
+        offset #{offsetIndex} limit #{limitCount}
+    </select>
+
+    <select id="selectAllRegistryPackage" resultMap="registryPackage">
+        select
+        id,
+        home,
+        lid,
+        type,
+        owner,
+        description AS d_id,
+        name AS n_id,
+        objecttype AS o_id,
+        status AS s_id,
+        versioninfo AS v_id
+        from
+        registrypackage
+    </select>
+    <select id="selectRegistryPackageById" resultMap="registryPackage" flushCache="true" useCache="false">
+        select
+        id,
+        home,
+        lid,
+        type,
+        owner,
+        description AS d_id,
+        name AS n_id,
+        objecttype AS o_id,
+        status AS s_id,
+        versioninfo AS v_id
+        from registrypackage where id = #{id}
+    </select>
+    <select id="selectRegistryPackageByType" resultMap="registryPackage">
+        select
+        id,
+        home,
+        lid,
+        type,
+        owner,
+        description AS d_id,
+        name AS n_id,
+        objecttype AS o_id,
+        status AS s_id,
+        versioninfo AS v_id
+        from registrypackage where type = #{type}
+    </select>
+    <select id="selectRegistryPackageByOwner" resultMap="registryPackage">
+        select
+        id,
+        home,
+        lid,
+        type,
+        owner,
+        description AS d_id,
+        name AS n_id,
+        objecttype AS o_id,
+        status AS s_id,
+        versioninfo AS v_id
+        from registrypackage where owner = #{owner}
+    </select>
+
+    <select id="selectRegistryPackageByFuzzId" resultType="java.lang.String">
+        select
+        id
+        from registrypackage
+        where
+        id like CONCAT(CONCAT('%',#{fuzzId},'%'))
+    </select>
+
+    <delete id="deleteRegistryPackageById">
+        delete from registrypackage where id = #{id}
+    </delete>
+    <resultMap id="registryPackage" type="com.csw.model.RegistryPackage">
+        <id column="id" property="id"/>
+        <result column="home" property="home"/>
+        <result column="lid" property="lid"/>
+        <result column="owner" property="owner"/>
+        <result column="type" property="type"/>
+        <association property="description" resultMap="com.myown.ResultMap.internationalString" columnPrefix="d_"/>
+        <association property="name" resultMap="com.myown.ResultMap.internationalString" columnPrefix="n_"/>
+        <association property="objectType" resultMap="com.myown.ResultMap.objectRef" columnPrefix="o_"/>
+        <association property="status" resultMap="com.myown.ResultMap.objectRef" columnPrefix="s_"/>
+        <association property="versionInfo" resultMap="com.myown.ResultMap.versionInfo" columnPrefix="v_"/>
+    </resultMap>
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.DataDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="data.id">
+        insert into data(id,type,path) values (#{data.id},#{data.type},#{data.path})
+    </insert>
+
+    <select id="selectDataById" resultMap="data">
+        select * from data where id = #{id}
+    </select>
+
+    <delete id="deleteDataById">
+        delete from data where id = #{id}
+    </delete>
+
+    <resultMap id="data" type="com.csw.model.Data">
+        <id property="id" column="id"/>
+        <result property="type" column="type"/>
+        <result property="path" column="path"/>
+    </resultMap>
+</mapper>

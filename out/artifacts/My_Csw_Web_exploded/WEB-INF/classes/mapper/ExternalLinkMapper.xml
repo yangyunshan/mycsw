@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.ExternalLinkDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="externalLink.id">
+        insert into externallink(id,home,lid,description,name,objecttype,status,
+        versioninfo,externaluri) values (#{externalLink.id},#{externalLink.home},#{externalLink.lid},
+        #{externalLink.description.id},#{externalLink.name.id},
+        #{externalLink.objectType.id},#{externalLink.status.id},#{externalLink.versionInfo.id},
+        #{externalLink.externalUri})
+    </insert>
+    <select id="selectExternalLinkById" resultMap="externalLink">
+        select
+        id,
+        home,
+        lid,
+        externaluri,
+        description d_id,
+        name n_id,
+        objecttype o_id,
+        status s_id,
+        versioninfo v_id
+        from
+        externallink
+        where
+        id = #{id}
+    </select>
+    <resultMap id="externalLink" type="com.csw.model.ExternalLink">
+        <id property="id" column="id"/>
+        <result property="home" column="home"/>
+        <result property="lid" column="lid"/>
+        <result property="externalURI" column="externaluri"/>
+        <association property="description" resultMap="com.myown.ResultMap.internationalString" columnPrefix="d_"/>
+        <association property="name" resultMap="com.myown.ResultMap.internationalString" columnPrefix="n_"/>
+        <association property="objectType" resultMap="com.myown.ResultMap.objectRef" columnPrefix="o_"/>
+        <association property="status" resultMap="com.myown.ResultMap.objectRef" columnPrefix="s_"/>
+        <association property="versionInfo" resultMap="com.myown.ResultMap.versionInfo" columnPrefix="v_"/>
+    </resultMap>
+</mapper>

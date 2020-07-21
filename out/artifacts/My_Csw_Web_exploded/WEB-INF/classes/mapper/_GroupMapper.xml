@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao._GroupDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyProperty="group.id">
+        insert into _group (groupname,groupinfo,masterid,mastername,createdate)
+        values (#{group.groupName},#{group.groupInfo},#{group.masterId},
+        #{group.masterName},#{group.createDate})
+    </insert>
+    <select id="selectAllGroups" resultMap="group">
+        select * from _group
+    </select>
+    <select id="selectGroupById" resultMap="group">
+        select * from _group where id = #{id}
+    </select>
+    <delete id="deleteGroupById">
+        delete from _group where id = #{id}
+    </delete>
+    <resultMap id="group" type="com.csw.privileage.util.Group">
+        <id property="id" column="id"/>
+        <result property="groupName" column="groupname"/>
+        <result property="groupInfo" column="groupinfo"/>
+        <result property="masterId" column="masterid"/>
+        <result property="masterName" column="mastername"/>
+        <result property="createDate" column="createdate"/>
+    </resultMap>
+</mapper>

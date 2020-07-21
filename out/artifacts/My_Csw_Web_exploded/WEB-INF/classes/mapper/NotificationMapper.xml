@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csw.dao.NotificationDAO">
+    <insert id="insertData" useGeneratedKeys="true" keyColumn="notification.id">
+        insert into notification(id,home,lid,description,name,objecttype,status,versioninfo,
+        subscription,notification_id)
+        values (#{notification.id},#{notification.home},#{notification.lid},
+        #{notification.description.id},#{notification.name.id},#{notification.objectType.id},
+        #{notification.status.id},#{notification.versionInfo.id},
+        #{notification.subscription.id},#{notificationId})
+    </insert>
+    <select id="selectNotificationById" resultMap="notification">
+        select
+        id,
+        home,
+        lid,
+        description d_id,
+        name n_id,
+        objecttype o_id,
+        status s_id,
+        versioninfo v_id,
+        subcription sub_id
+        from
+        notification
+        where
+        id = #{id}
+    </select>
+    <delete id="deleteNotificationById">
+        delete from notification where id = #{id}
+    </delete>
+    <resultMap id="notification" type="com.csw.model.Notification">
+        <id property="id" column="id"/>
+        <result property="home" column="home"/>
+        <result property="lid" column="lid"/>
+        <association property="description" resultMap="com.myown.ResultMap.internationalString" columnPrefix="d_"/>
+        <association property="name" resultMap="com.myown.ResultMap.internationalString" columnPrefix="n_"/>
+        <association property="objectType" resultMap="com.myown.ResultMap.objectRef" columnPrefix="o_"/>
+        <association property="status" resultMap="com.myown.ResultMap.objectRef" columnPrefix="s_"/>
+        <association property="versionInfo" resultMap="com.myown.ResultMap.versionInfo" columnPrefix="v_"/>
+        <association property="subscription" resultMap="com.myown.ResultMap.objectRef" columnPrefix="sub_"/>
+    </resultMap>
+</mapper>

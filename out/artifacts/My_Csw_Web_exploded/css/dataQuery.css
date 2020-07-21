@@ -1,0 +1,75 @@
+/*header{*/
+/*    background-color: #46ffe4;*/
+/*    text-align: center;*/
+/*}*/
+.envelope{
+    text-align: center;
+}
+
+#box {
+    left: 53%;
+}
+
+#generalResult {
+    display: none;
+}
+
+#spatialResult {
+    display: none;
+}
+
+/*********************************************************/
+
+.envelope input {
+    outline-style: none;
+    border-radius: 5px;
+    padding: 3px 0;
+    margin: 10px 0;
+    text-align: center;
+}
+
+table {
+    text-align: center;
+}
+
+.envelope input:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+
+input[type='text'] {
+    outline-style: none;
+    border-radius: 5px;
+    padding: 3px 0;
+    margin: 10px 0;
+    width: 190px;
+}
+
+.customButton {
+    outline-style: none;
+    border-radius: 5px;
+    padding: 3px 0;
+    margin: 10px 0;
+    width: 50px;
+}
+
+.customButton:hover {
+    background: #E86ED0;
+}
+
+input:focus{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+
+.dateselect {
+    width: 100px;
+}
+
+.envelope input[type='text'] {
+    width: 90px;
+}
